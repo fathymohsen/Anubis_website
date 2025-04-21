@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anubis</title>
+  <style>
+    /* خلفية متحركة باستخدام دوران تدرج لوني */
+    @keyframes rotateBackground {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    /* تأثير خلفية متغيرة */
+    .background {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, #222, #000 70%);
+      animation: rotateBackground 30s linear infinite;
+      z-index: -2;
+    }
+    /* تعديل الشريطين المتحركين ليكون لونهما دهبي */
+    @keyframes moveGrid {
+      0% { background-position: 0 0; }
+      100% { background-position: 100px 100px; }
+    }
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(45deg, gold 25%, transparent 25%), 
+        linear-gradient(-45deg, gold 25%, transparent 25%);
+      background-size: 50px 50px;
+      opacity: 0.3;
+      animation: moveGrid 20s linear infinite;
+      z-index: -1;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: gold;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3.2em;
+      margin-bottom: 25px;
+      text-shadow: 0 0 12px gold;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .converter-container {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px 40px;
+      border: 2px solid gold;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      transform: scale(0.95);
+      animation: popIn 1s forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2em;
+      border: 2px solid gold;
+      background: transparent;
+      color: gold;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 20px;
+      text-align: center;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    input[type="text"]:focus {
+      box-shadow: 0 0 10px gold;
+      transform: scale(1.02);
+    }
+    .convert-btn {
+      padding: 12px 25px;
+      font-size: 1.1em;
+      background: transparent;
+      border: 2px solid gold;
+      color: gold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      border-radius: 8px;
+    }
+    .convert-btn:hover {
+      background-color: rgba(255, 215, 0, 0.15);
+      transform: scale(1.08);
+      box-shadow: 0 0 15px gold;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.6em;
+      min-height: 50px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      word-wrap: break-word;
+    }
+    /* تأثير نبض خفيف على كل حرف في النتيجة */
+    .result span {
+      display: inline-block;
+      animation: letterPulse 2s ease-in-out infinite;
+    }
+    @keyframes letterPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="grid-overlay"></div>
+
+  <h1>تحويل الاسم للحروف الفرعونية</h1>
+  <div class="converter-container">
+    <input type="text" id="nameInput" placeholder="أدخل اسمك هنا" />
+    <br />
+    <button class="convert-btn" id="convertBtn">حوّل</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    // جداول تحويل الحروف
+    const hieroglyphMappingLatin = {
+      "A": "𓄿", "B": "𓃀", "C": "𓍿", "D": "𓂧", "E": "𓇋",
+      "F": "𓆑", "G": "𓎼", "H": "𓎛", "I": "𓇋", "J": "𓏠",
+      "K": "𓂓", "L": "𓃭", "M": "𓅓", "N": "𓈖", "O": "𓍯",
+      "P": "𓊪", "Q": "𓈎", "R": "𓂋", "S": "𓋴", "T": "𓏏",
+      "U": "𓅱", "V": "𓆑", "W": "𓅱", "X": "𓐍", "Y": "𓇋", "Z": "𓊃"
+    };
+
+    const hieroglyphMappingArabic = {
+      "ا": "𓀀",
+      "ب": "𓃀",
+      "ت": "𓍿",
+      "ث": "𓏏",
+      "ج": "𓏠",
+      "ح": "𓎛",
+      "خ": "𓎼",
+      "د": "𓂧",
+      "ذ": "𓏲",
+      "ر": "𓂋",
+      "ز": "𓊃",
+      "س": "𓋴",
+      "ش": "𓎡",
+      "ص": "𓊪",
+      "ض": "𓊪",
+      "ط": "𓏏",
+      "ظ": "𓅱",
+      "ع": "𓇌",
+      "غ": "𓎼",
+      "ف": "𓆑",
+      "ق": "𓈎",
+      "ك": "𓂓",
+      "ل": "𓃭",
+      "م": "𓅓",
+      "ن": "𓈖",
+      "ه": "𓄿",
+      "و": "𓅱",
+      "ي": "𓇋"
+    };
+
+    const nameInput = document.getElementById("nameInput");
+    const convertBtn = document.getElementById("convertBtn");
+    const resultDiv = document.getElementById("result");
+
+    convertBtn.addEventListener("click", function() {
+      const name = nameInput.value.trim();
+      if (!name) {
+        resultDiv.textContent = "من فضلك أدخل اسمك!";
+        return;
+      }
+      let converted = "";
+      for (let char of name) {
+        if (char === " ") {
+          converted += " ";
+        } else {
+          if (hieroglyphMappingArabic[char]) {
+            converted += hieroglyphMappingArabic[char];
+          } else {
+            const upperChar = char.toUpperCase();
+            converted += hieroglyphMappingLatin[upperChar] || char;
+          }
+        }
+      }
+      resultDiv.innerHTML = "";
+      for (let letter of converted) {
+        const span = document.createElement("span");
+        span.textContent = letter;
+        resultDiv.appendChild(span);
+      }
+    });
+  </script>
+</body>
+</html>

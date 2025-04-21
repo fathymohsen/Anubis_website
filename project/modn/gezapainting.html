@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anubis</title>
+    <link rel="stylesheet" href="/project/knoz.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Anubis</a>
+        <nav class="nav">
+            <a href="/index.html">الرئيسية</a>
+
+        </nav>
+    </header>
+
+    <section>
+        <h1>لوحات في الجيزة</h1>
+        <div class="content" id="content"></div>
+    </section>
+
+    <script>
+        const paintings = [
+            "لوحة أمحوتب","لوحة أبو الهول","لوحة الإله بتاح"
+
+        ];
+
+        document.getElementById("content").innerHTML = paintings.map(name => `
+            <div class="image">
+                <a href="/project/data.html?data=${name}">
+                    <img src="/images/${name}.jpg" alt="${name}">
+                </a>
+                <div class="about"><h2>${name}</h2></div>
+            </div>
+        `).join("");
+    </script>
+</body>
+</html>

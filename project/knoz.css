@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat&family=Kanit:ital@1&family=Libre+Baskerville&family=Playfair+Display&family=Tilt+Neon&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+    background: black;
+}
+header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    word-spacing: 40px;
+    margin-top: 5px;
+    padding-left: 50px;
+
+}
+header a{
+    text-decoration: none;
+}
+.logo{
+    padding-left: 20px;
+    padding-top: 2px;
+    color: goldenrod;
+    font-size: 35px;
+    font-weight: bold;
+    font-style: italic;
+}
+.nav {
+
+    padding-left: 850px;
+    padding-right: 70px;
+    padding-top: 12px;
+    font-size: 20px;
+    
+}
+.nav a{
+    color: rgb(181, 194, 194);
+    font-style: italic;
+    transition: 1s;
+}
+.nav a:hover{
+    color: white;
+    border-radius: 2px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.part2,#me{
+    position: relative;
+    right: 80px;
+    padding-top: 12px;
+    font-size: 20px;
+    color: rgb(181, 194, 194);
+    transition: 1s;
+
+}
+.part2:hover,#me:hover{
+    color: white;
+    border-radius: 2px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.content{
+    width: 100%; 
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:25px 20px;
+    position: relative;
+    left: 220px;
+    top: 20px;
+
+}
+h1{
+    height: 70px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 18px;
+    color: aliceblue;
+}
+.about h2{
+    color: white;
+    text-align: center;
+    transition: 1s;
+}
+h2:hover{
+   color: aquamarine;
+}
+.image{
+    position: relative;
+    left:30px;
+    top: 20px;
+    border:1px solid rgba(255, 38, 0, 0.5);
+    border-radius: 15px;
+    transition: 1s;
+}
+.image img{
+    height: 350px;
+    width: 350px;
+    border-radius: 10px;
+    padding-left: 35px;
+    padding-top: 20px;
+    
+}
+.image:hover{
+   scale: 1.1;
+   border: 1px solid rgb(0, 255, 55);
+   border-radius: 15px;
+
+}
+.about a{
+    text-decoration: none;
+    color: aliceblue;
+
+}
+details {
+    display: block;
+    width: 1px;
+    position: relative;
+    bottom: 40px;
+    right: 20px;
+    font-size: 25px;
+    font-style: italic;
+}

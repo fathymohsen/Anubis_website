@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anubis</title>
+    <link rel="stylesheet" href="/project/knoz.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Anubis</a>
+        <nav class="nav">
+            <a href="/index.html">الرئيسية</a>
+        </nav>
+    </header>
+    <section>
+        <h1>متاحف في المنيا</h1>
+        <div class="content" id="content"></div>
+    </section>
+
+    <script>
+        const museums = [
+            "متحف إخناتون"
+
+        ];
+
+        document.getElementById("content").innerHTML = museums.map(name => `
+            <div class="image">
+                <a href="/project/data.html?data=${name}">
+                    <img src="/images/${name}.jpg" alt="${name}">
+                </a>
+                <div class="about"><h2>${name}</h2></div>
+            </div>
+        `).join("");
+    </script>
+</body>
+</html>

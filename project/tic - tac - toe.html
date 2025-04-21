@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anubis</title>
+  <style>
+    /* خلفية متحركة بتدرج ذهبي على الأسود */
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #000, #333, #000);
+      background-size: 200% 200%;
+      animation: bgAnimation 10s ease infinite;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: gold;
+    }
+    
+    h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 8px gold;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-template-rows: repeat(3, 120px);
+      gap: 10px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .cell {
+      width: 120px;
+      height: 120px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 3px solid gold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 0 10px gold;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cell:hover {
+      background-color: rgba(255, 215, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* Bounce animation عند الضغط */
+    .cell.clicked {
+      animation: bounce 0.5s ease;
+    }
+    
+    @keyframes bounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .winner {
+      margin-top: 30px;
+      font-size: 2em;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* زر لإعادة اللعب */
+    .reset-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background: transparent;
+      border: 2px solid gold;
+      color: gold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .reset-btn:hover {
+      background-color: rgba(255, 215, 0, 0.2);
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>tic tac toe</h1>
+  <div class="board" id="board"></div>
+  <div class="winner" id="winner"></div>
+  <button class="reset-btn" id="resetBtn">إعادة اللعب</button>
+
+  <script>
+    const board = document.getElementById("board");
+    const winnerText = document.getElementById("winner");
+    const resetBtn = document.getElementById("resetBtn");
+    let currentPlayer = "X";
+    let cells = ["", "", "", "", "", "", "", "", ""];
+
+    const winPatterns = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]
+    ];
+
+    function checkWinner() {
+      for (let pattern of winPatterns) {
+        const [a, b, c] = pattern;
+        if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+          winnerText.textContent = `الفائز هو: ${cells[a]}`;
+          board.removeEventListener("click", handleClick);
+          return true;
+        }
+      }
+      if (!cells.includes("")) {
+        winnerText.textContent = "التعادل!";
+        return true;
+      }
+      return false;
+    }
+
+    function handleClick(event) {
+      const cell = event.target;
+      const index = Array.from(board.children).indexOf(cell);
+      if (cells[index] === "" && cell.classList.contains("cell")) {
+        cells[index] = currentPlayer;
+        cell.textContent = currentPlayer;
+        cell.classList.add("clicked");
+        // إزالة الكلاس بعد انتهاء الأنيميشن
+        setTimeout(() => cell.classList.remove("clicked"), 500);
+        if (!checkWinner()) {
+          currentPlayer = currentPlayer === "X" ? "O" : "X";
+        }
+      }
+    }
+
+    function initBoard() {
+      board.innerHTML = "";
+      cells = ["", "", "", "", "", "", "", "", ""];
+      winnerText.textContent = "";
+      currentPlayer = "X";
+      for (let i = 0; i < 9; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        board.appendChild(cell);
+      }
+      board.addEventListener("click", handleClick);
+    }
+
+    resetBtn.addEventListener("click", initBoard);
+
+    initBoard();
+  </script>
+</body>
+</html>

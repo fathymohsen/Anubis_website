@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anubis</title>
+    <link rel="stylesheet" href="knoz.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Anubis</a>
+        <nav class="nav">
+            <a href="/index.html">الرئيسية</a>
+        </nav>
+    </header>
+    <section>
+        <h1>المقابر</h1>
+        <div class="content" id="content"></div>
+    </section>
+    <script>
+        const tombs = [
+            "المقبرة الجنوبية", "مقبرة أمنمحات", "جبانة الدولة الحديثة بسقارة",
+            "مقابر الدولة الحديثة بجبل السلسلة", "مقبرة الأخوين ني عنخ خنوم وخنوم حتب",
+            "مقبرة الملك رمسيس السادس", "مقبرة الملكة مرس عنخ الثالثة",
+            "مقبرة باقت الثالث", "مقبرة بنيوت", "مقبرة توت عنخ آمون",
+            "مقبرة حسي مين", "مقبرة حم مين", "مقبرة حورمحب",
+            "مقبرة خوفو خع إف الأول", "مقبرة خيتي", "مقبرة سيتي الأول",
+            "مقبرة شبسي بو مين  خني", "مقبرة كا حب  ثتي اقر", "مقبرة مريروكا",
+            "مقبرة نهويت دشر مري", "مقبرة خنوم حتب الثاني"
+        ];
+
+        document.getElementById("content").innerHTML = tombs.map(name => `
+            <div class="image">
+                <a href="data.html?data=${name}">
+                    <img src="/images/${name}.jpg" alt="${name}">
+                </a>
+                <div class="about"><h2>${name}</h2></div>
+            </div>
+        `).join("");
+    </script>
+</body>
+</html>

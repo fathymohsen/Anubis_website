@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anubis</title>
+    <link rel="stylesheet" href="knoz.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Anubis</a>
+        <nav class="nav">
+            <a href="../index.html">الرئيسية</a>
+        </nav>
+    </header>
+    <section>
+        <h1>الاهرامات</h1>
+        <div class="content" id="content"></div>
+    </section>
+    <script>
+        const pyramids = [
+            "الجبانتان الشرقية والغربية", "المجموعه الهرميه لتتي", "المجموعة الهرمية للملك منكاورع",
+            "الهرم الأحمر", "الهرم الأكبر", "الهرم المنحني", "جبانة ومدينة العمال بناة الأهرام",
+            "هرم أمنمحات الأول", "هرم أمنمحات الثاني", "هرم أوناس", "هرم اللاهون", "هرم بيبي الأول",
+            "هرم بيبي الثاني", "هرم خفرع", "هرم دهشور", "هرم زوسر المدرج", "هرم ساحورع", "هرم سنوسرت الأول",
+            "هرم سنوسرت الثالث", "هرم منقرع", "هرم ميدوم", "هرم نفر إر كا رع", "هرم نفر إف رع", 
+            "هرم ني اوسر رع", "هرم هوارة"
+        ];
+
+        document.getElementById("content").innerHTML = pyramids.map(name => `
+            <div class="image">
+                <a href="data.html?data=${name}">
+                    <img src="../images/${name}.jpg" alt="${name}">
+                </a>
+                <div class="about"><h2>${name}</h2></div>
+            </div>
+        `).join("");
+    </script>
+</body>
+</html>

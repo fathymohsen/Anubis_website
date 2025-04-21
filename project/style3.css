@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.logo{
+    font-size: 50px;
+    font-style: italic;
+    font-weight: bold;
+    color: #f0b800;
+    text-decoration: none;
+    padding-right: 1420px;
+    padding-top: 20px;
+    position: relative;
+    top: 10px;
+    }
+    .nav{
+    font-size: 30px;
+    font-style: italic;
+    
+    }
+    .nav {
+    color: aliceblue;
+    text-decoration: none;
+    position: relative;
+    left: 1500px;
+    top: 10px;
+    }
+    .nav:hover{
+    color:white;
+    border-bottom: 1px white solid;}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.image-container img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    position: fixed;
+    top: 220px;
+    left: 30px;
+}
+
+.text-container {
+    max-width: 60%;
+    text-align: right;
+    position: fixed;
+    top: 150px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-title h1 {
+    border-bottom: 1px solid gold;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.section {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    right: 20px;
+    top: 100px;
+}
+.section-content {
+    display: none;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    border: 2px solid #c5d90c74;
+    border-radius: 5px;
+    position: relative;
+    right: 20px;
+    top: 100px;
+    line-height: 30px;
+}
+
+.section:hover {
+    background-color: gold;
+    color: white;
+}
+
+.section-content {
+    display: none;
+    border: 1px solid gold;
+    margin-top: 10px;
+    padding: 10px;
+}
