@@ -1,0 +1,131 @@
+
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+.logo{
+font-size: 50px;
+font-style: italic;
+font-weight: bold;
+color: #f0b800;
+text-decoration: none;
+padding-right: 1420px;
+padding-top: 20px;
+position: relative;
+top: 10px;
+}
+.nav{
+font-size: 30px;
+font-style: italic;
+
+}
+.nav {
+color: aliceblue;
+text-decoration: none;
+position: relative;
+left: 1500px;
+top: 10px;
+}
+.nav:hover{
+color:white;
+border-bottom: 1px white solid;}
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    position: relative;
+    top: 20px;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+    border: 1px solid gold;
+    border-radius: 50px;
+    margin: 0;
+}
+
+.content-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.image-container {
+    flex-shrink: 0;
+    position: absolute;
+    right: 1150px;
+}
+
+.image-container img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    position: fixed;
+    top: 220px;
+    left: 30px;
+}
+
+
+.text-container {
+    max-width: 60%;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.section-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    width: 170px;
+    text-align: center;
+    position: relative;
+    right: 40px;
+    top: 30px;
+    line-height: 70px;
+    display: inline-block;
+
+}
+
+.section-title:hover {
+    background-color: gold;
+    color: black;
+}
+
+.section-content {
+    margin-top: 20px;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    border: 2px solid gold;
+    border-radius: 5px;
+    position: relative;
+    right: 20px;
+    top: 30px;
+    line-height: 30px;
+    word-spacing: 5px;
+    min-height: 150px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.section-content p {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
