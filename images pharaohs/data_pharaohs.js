@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    fetch("/images pharaohs/kings_ar.json")
+    fetch("./kings_ar.json")
         .then(response => {
             if (!response.ok) throw new Error("فشل تحميل ملف JSON");
             return response.json();
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const imagePath = `/images pharaohs/${Data.name}.jpg`;
+            const imagePath = `../images pharaohs/${Data.name}.jpg`;
 
             document.body.innerHTML = `
                 <a href="#" class="logo">Anubis</a>
