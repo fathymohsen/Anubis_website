@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap');
+        
+:root {
+    --gold: #d4af37;
+    --light-gold: #f5d76e;
+    --dark-gold: #b8860b;
+    --black: #000000;
+    --sand: #f4e9d7;
+    --dark-sand: #e0d5c1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: var(--black);
+    color: var(--gold);
+    font-family: 'Scheherazade New', serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+header{
+padding-right: 1500px;
+height: 50px;
+display: flex;
+justify-content: space-between;
+word-spacing: 40px;
+margin-top: 5px;
+padding-left: 50px;
+
+}
+header a{
+text-decoration: none;
+}
+.logo{
+padding-top: 2px;
+color: goldenrod;
+font-size: 35px;
+font-weight: bold;
+font-style: italic;
+}
+.nav {
+position: absolute;
+left: 1500px;
+padding-top: 12px;
+font-size: 25px;
+
+}
+.nav a{
+
+color: rgb(181, 194, 194);
+font-style: italic;
+transition: 1s;
+}
+.nav a:hover{
+color: white;
+border-radius: 2px;
+border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.parallax-header {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Cpath d='M50 10L90 90H10L50 10Z' fill='%23d4af37' fill-opacity='0.2'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+    z-index: 1;
+}
+
+.title-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.title-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.ankh {
+    width: 60px;
+    height: 100px;
+    margin: 0 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M12 2C9.79 2 8 3.79 8 6s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-3.31 0-6-2.69-6-6S8.69 0 12 0s6 2.69 6 6-2.69 6-6 6zm-2 2h4v11h-4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: float 6s ease-in-out infinite;
+}
+
+.line {
+    flex-grow: 1;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    animation: glow 3s ease-in-out infinite alternate;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--light-gold);
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1s forwards;
+}
+
+.egyptian-border {
+    border: 10px solid transparent;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75' viewBox='0 0 75 75'%3E%3Cpath d='M0 0h75v75H0z' fill='none'/%3E%3Cpath d='M37.5 0L75 37.5 37.5 75 0 37.5z' fill='%23d4af37' fill-opacity='0.5'/%3E%3C/svg%3E") 10;
+    padding: 25px;
+    margin: 40px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    animation: borderGlow 4s ease-in-out infinite alternate;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hieroglyphic {
+    height: 60px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20' viewBox='0 0 100 20'%3E%3Cpath d='M30 10a5 5 0 1 1-10 0 5 5 0 0 1 10 0zm25 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0zm25 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0z' fill='%23d4af37' fill-opacity='0.5'/%3E%3C/svg%3E");
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hieroglyphic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
+    animation: shimmer 5s infinite;
+}
+
+.section-title {
+    text-align: center;
+    margin: 40px 0 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.gods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.god-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--dark-gold);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.god-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+    border-color: var(--gold);
+}
+
+.god-card:hover .card-content {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+}
+
+.god-card:hover .god-image::before {
+    opacity: 0;
+}
+
+.god-card:hover .god-name {
+    color: var(--light-gold);
+}
+
+.god-image {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.god-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: sepia(30%);
+}
+
+.god-card:hover .god-image img {
+    transform: scale(1.1);
+    filter: sepia(0%);
+}
+
+.god-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    transition: opacity 0.5s ease;
+}
+
+.card-content {
+    padding: 20px;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+}
+
+.god-name {
+    color: var(--gold);
+    margin: 0 0 15px;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.god-name::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.god-card:hover .god-name::after {
+    width: 80%;
+}
+
+.god-title {
+    color: var(--sand);
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: normal;
+    transition: all 0.3s ease;
+}
+
+.god-card:hover .god-title {
+    color: var(--light-gold);
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--dark-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border: 1px solid var(--dark-gold);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.god-card:hover .read-more {
+    background-color: var(--dark-gold);
+    color: var(--black);
+}
+
+.eye-of-horus {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    right: 15px;
+    opacity: 0;
+    transform: rotate(0deg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23d4af37'%3E%3Cpath d='M256 128c-81.9 0-145.7 48.8-224 128 67.4 67.7 124 128 224 128 99.9 0 173.4-76.4 224-126.6C428.2 198.6 354.8 128 256 128zm0 219.3c-49.4 0-89.6-41-89.6-91.3 0-50.4 40.2-91.3 89.6-91.3s89.6 41 89.6 91.3c0 50.4-40.2 91.3-89.6 91.3z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.god-card:hover .eye-of-horus {
+    opacity: 0.7;
+    transform: rotate(360deg);
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--black);
+    border: 3px solid var(--gold);
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gold);
+    font-size: 30px;
+    cursor: pointer;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.close-btn:hover {
+    background-color: var(--gold);
+    color: var(--black);
+    transform: rotate(90deg);
+}
+
+.god-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.god-details-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.god-portrait {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+    position: relative;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.god-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.god-portrait::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 60%, rgba(0, 0, 0, 0.6));
+}
+
+.god-details h2 {
+    font-size: 3rem;
+    margin: 0 0 10px;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.god-details h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.god-details h3 {
+    font-size: 1.5rem;
+    color: var(--sand);
+    margin: 0 0 20px;
+    font-weight: normal;
+}
+
+.god-story {
+    color: var(--sand);
+    line-height: 1.8;
+    text-align: right;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.god-story p {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.5s ease;
+}
+
+.god-story p:nth-child(1) { transition-delay: 0.2s; }
+.god-story p:nth-child(2) { transition-delay: 0.4s; }
+.god-story p:nth-child(3) { transition-delay: 0.6s; }
+.god-story p:nth-child(4) { transition-delay: 0.8s; }
+.god-story p:nth-child(5) { transition-delay: 1s; }
+
+.modal.show .god-story p {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(212, 175, 55, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes borderGlow {
+    0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); }
+    100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+}
